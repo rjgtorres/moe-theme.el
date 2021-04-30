@@ -98,9 +98,9 @@ Moe, moe, kyun!")
    `(cursor ((,class (:background ,white-0))))
 
    ;; Highlighting faces
-   `(fringe ((,class (:foreground ,black-1 :background ,black-3))))
+   `(fringe ((,class (:foreground ,black-1 :background ,black-5))))
    `(linum ((,class (:foreground ,white-3 :background ,black-3))))
-   `(line-number ((,class (:foreground ,white-3 :background ,black-3))))
+   `(line-number ((,class (:foreground ,white-3 :background ,black-5))))
    `(linum-highlight-face ((,class (:background ,green-0 :foreground ,black-4))))
    `(line-number-current-line ((,class (:background ,black-6 :foreground ,white-3))))
    `(highlight ((,class (:background ,black-3))))
@@ -116,10 +116,10 @@ Moe, moe, kyun!")
    `(help-argument-name ((,class (:foreground ,magenta-1 :italic t))))
    `(eldoc-highlight-function-argument ((,class (:foreground ,green-01 :bold t :underline t :background ,green-5))))
    ;; Mode line & frames' faces
-   `(mode-line ((,class (:box nil :background ,blue-0 :foreground ,blue-3))))
-   `(mode-line-inactive ((,class (:box nil :background ,black-2-5 :foreground ,white-1))))
+   `(mode-line ((,class (:box nil :background ,blue-3 :foreground ,blue-0))))
+   `(mode-line-inactive ((,class (:box nil :background ,black-5 :foreground ,white-2))))
    `(mode-line-buffer-id ((,class (:box nil :foreground ,black-5 :background nil :bold t))))
-   `(vertical-border ((,class (:foreground ,black-3 :background ,black-3))))
+   `(vertical-border ((,class (:foreground ,black-5 :background ,black-5))))
 
    ;; Escape and prompt faces
    `(minibuffer-prompt ((,class (:foreground ,black-3 :background ,green-2))))

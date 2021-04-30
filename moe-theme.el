@@ -39,12 +39,12 @@ If nil, just bold buffer-id without highlight")
 ;; Modeline Color
 ;; ======================================================
 
-(defconst moe-theme-modeline-available-colors-set '(blue green orange magenta yellow purple red cyan w/b))
+(defconst moe-theme-modeline-available-colors-set '(blue green orange magenta yellow purple red cyan w/b g/b))
 
 (defvar moe-theme-mode-line-color 'blue
   "Default is 'blue.
 If nil, no background color.
-Available choices: 'blue, 'cyan', 'green, 'magenta, 'red, 'orange, 'yellow, 'purple, 'b/w")
+Available choices: 'blue, 'cyan', 'green, 'magenta, 'red, 'orange, 'yellow, 'purple, 'b/w, 'g/b")
 
 ;; ======================================================
 ;; Auto Change Modeline Color By Frame ID
@@ -56,7 +56,7 @@ Available choices: 'blue, 'cyan', 'green, 'magenta, 'red, 'orange, 'yellow, 'pur
 This feature rely on a checksum function to ensure a predictable order of color.
 Function `moe-theme-get-color-by-frame-name' is the implementation.")
 
-(defvar moe-theme-colorize-modeline-by-frame-id-color-set '(cyan green orange blue yellow magenta b/w purple)
+(defvar moe-theme-colorize-modeline-by-frame-id-color-set '(cyan green orange blue yellow magenta b/w g/b purple)
   "See `moe-theme-colorize-modeline-by-frame-id'.
 `moe-theme-get-color-by-frame-name' will choose a color from this list")
 
@@ -264,7 +264,11 @@ Avoid unnecessary load-theme")
         ((eq moe-theme-mode-line-color 'w/b)
          (set-face-attribute 'mode-line nil :background "#ffffff" :foreground "#3a3a3a")
          (set-face-attribute 'mode-line-buffer-id nil :background "#9e9e9e" :foreground "#080808")
-         (set-face-attribute 'minibuffer-prompt nil :foreground "#3e3e3e" :background "#ffffff")))
+         (set-face-attribute 'minibuffer-prompt nil :foreground "#3e3e3e" :background "#ffffff"))
+	((eq moe-theme-mode-line-color 'g/b)
+         (set-face-attribute 'mode-line nil :background "#6c6c6c" :foreground "#c3c9f8")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#6c6c6c" :foreground "#010101")
+         (set-face-attribute 'minibuffer-prompt nil :foreground "#8a8a8a" :background "#080808")))
   (moe-theme--common-setup))
 
 ;; ======================================================
