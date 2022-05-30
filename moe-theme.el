@@ -300,7 +300,7 @@ it. Also see `moe-theme-random-color'"
   "Give me a random mode-line color.
 This function can be called both programmly and interactively."
   (interactive)
-  (let* ((n (abs (% (random) 9)))
+  (let* ((n (abs (% (random) (length moe-theme-modeline-available-colors-set))))
          (current-color moe-theme-mode-line-color))
     (if (eq (elt moe-theme-modeline-available-colors-set n) current-color) ;If gotten color eq current-color, random again.
         (moe-theme-random-color)
