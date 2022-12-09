@@ -1,7 +1,7 @@
-;;; moe-theme --- A colorful eye-candy theme. Moe, moe, kyun!
+;;; moe-theme.el --- A colorful eye-candy theme. Moe, moe, kyun!
 
-;; This program is not part of GNU Emacs, but it is distributed under GPL v3 :-)
-;;
+;; Copyright (C) 2013-2022 kuanyui
+
 ;; This file is established for packaging. If you want to install manually,
 ;; check README.md
 ;;
@@ -9,7 +9,22 @@
 ;; Keywords: themes
 ;; X-URL: https://github.com/kuanyui/moe-theme.el
 ;; URL: https://github.com/kuanyui/moe-theme.el
-;; Version: {{VERSION}}
+;; Version: 1.0.2
+
+;; This file is not part of GNU Emacs.
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -392,7 +407,6 @@ as long as setq `moe-theme-mode-line-color' first."
 ;; Auto Colorize by frame id (Only usable under terminal)
 ;; ======================================================
 (when (null (window-system))
-  ;; [TODO] support for Elscreen
   (defun moe-theme-get-color-by-frame-name ()
     (let* ((obj-name (format "%s" (selected-frame)))
            (name (progn (string-match "#<frame \\(.+?\\) 0x[0-9a-f]+>" obj-name)
@@ -415,7 +429,19 @@ as long as setq `moe-theme-mode-line-color' first."
     (if moe-theme-colorize-modeline-by-frame-id
         (moe-theme-apply-color (moe-theme-get-color-by-frame-name)))))
 
-
+;; support for Elscreen
+(with-eval-after-load 'elscreen
+  (when (and (window-system))
+    (defun moe-theme-get-color-by-frame-name ()
+      (let* ((all-screen-indexes (sort (elscreen-get-screen-list) '<))
+             (cur-index (elscreen-get-current-screen))
+             (enabled-colors-len (length moe-theme-colorize-modeline-by-frame-id-color-set)))
+        (nth (% cur-index enabled-colors-len) moe-theme-colorize-modeline-by-frame-id-color-set)))
+    (defadvice elscreen-goto (after change-mode-line-color-by-frame-id activate)
+      (if moe-theme-colorize-modeline-by-frame-id
+          (moe-theme-apply-color (moe-theme-get-color-by-frame-name)))
+      )
+    ))
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path)
            load-file-name)

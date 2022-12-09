@@ -1,7 +1,24 @@
 ;;; moe-light-theme.el --- An eye-candy theme for Emacser
 
+;; Copyright (C) 2013-2022 kuanyui
+
 ;; Author: kuanyui<azazabc123@gmail.com>
 ;; Based on "tango-dark-theme"
+
+;; This file is not part of GNU Emacs.
+;;
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Code:
 
@@ -21,8 +38,8 @@ Moe, moe, kyun!")
       (red-1 "#ef2929")  (red-2 "#cc0000")  (red-3 "#a40000")
       (white-1 "#eeeeee") (white-2 "#dadada") (white-3 "#c6c6c6") (white-4 "#b2b2b2") (black-1 "#9e9e9e")
       (black-2 "#8a8a8a") (black-3 "#767676") (black-4 "#626262") (black-5 "#5f5f5f") (black-6 "#3a3a3a")
-      (LIGHT_BG "#fdfde7") (white-0 "#ffffff")
-      (green-02 "#5fd700") (green-01 "#d7ff00") (green-0 "#d7ff5f") (green-00 "#d7ff87")
+      (LIGHT_BG "#fdfdf6") (white-0 "#ffffff")
+      (green-02 "#5fd700") (green-01 "#d7ff00") (green-0 "#d7ff5f") (green-00 "#d7ff87")  (green-00 "#d7ff87")
       (cyan-0 "#d7ffd7")
       (blue-01 "#c3c9f8") (blue-0 "#afd7ff") (blue-00 "#d7d7ff") (blue-000 "#d4e5ff")
       (yellow-0 "#ffff87") (yellow-00 "#ffffaf") (yellow-2-5 "#ffba27")
@@ -220,12 +237,14 @@ Moe, moe, kyun!")
    `(markdown-header-face-5 ((,class (:foreground ,orange-2 :bold t))))
    `(markdown-header-face-6 ((,class (:foreground ,orange-2 :bold t))))
    `(markdown-link-face ((,class (:foreground ,magenta-1 :bold t :underline ,magenta-1))))
-   `(markdown-inline-code-face ((,class (:foreground ,blue-3 :background ,blue-00))))
+   `(markdown-inline-code-face ((,class (:foreground ,black-4 :background ,white-1))))
+   `(markdown-code-face ((,class (:foreground nil :background nil))))
+   `(markdown-markup-face  ((,class (:foreground ,black-1 :background nil))))
    `(markdown-italic-face ((,class (:foreground ,black-5 :italic t :underline ,black-5))))
    `(markdown-list-face ((,class (:foreground ,orange-2 :background ,LIGHT_BG :bold t))))
    `(markdown-math-face ((,class (:foreground ,purple-2))))
    `(markdown-missing-link-face ((,class (:foreground ,red-1 :bold t))))
-   `(markdown-pre-face ((,class (:foreground ,blue-2))))
+   `(markdown-pre-face ((,class (:foreground ,black-4 :background ,white-1))))
    `(markdown-reference-face ((,class (:foreground ,orange-2 :italic t))))
    `(markdown-url-face ((,class (:foreground ,magenta-3 :underline ,magenta-3))))
 
@@ -398,12 +417,14 @@ Moe, moe, kyun!")
    `(dired-perm-write ((,class (:foreground ,red-2 :bold t))))
    `(dired-symlink ((,class (:foreground ,magenta-2))))
    `(dired-warning ((,class (:foreground ,white-0 :background ,red-1 :bold t))))
+   `(diredp-compressed-file-name ((,class (:foreground ,white-4))))
    `(diredp-compressed-file-suffix ((,class (:foreground ,purple-2))))
    `(diredp-date-time ((,class (:foreground ,blue-3 :background ,blue-00))))
    `(diredp-deletion ((,class (:foreground ,white-0, :background ,red-3))))
    `(diredp-deletion-file-name ((,class (:foreground ,red-2))))
    `(diredp-dir-heading ((,class (:foreground ,black-5 :background ,green-01 :bold t))))
-   `(diredp-dir-priv ((,class (:foreground ,blue-1 :background ,LIGHT_BG :bold t))))
+   `(diredp-dir-name ((,class (:foreground ,blue-1 :background ,LIGHT_BG :bold t))))
+   `(diredp-dir-priv ((,class (:foreground ,blue-1 :background ,LIGHT_BG))))
    `(diredp-display-msg ((,class (:foreground ,orange-2))))
    `(diredp-executable-tag ((,class (:foreground ,green-2))))
    `(diredp-file-name ((,class (:foreground ,black-5))))
@@ -482,7 +503,7 @@ Moe, moe, kyun!")
    `(magit-reflog-reset ((,class (:foreground ,red-3 :background ,red-00))))
    `(magit-section-heading ((,class (:foreground ,orange-3 :background nil :bold t :underline t))))
    `(magit-section-heading-selection ((,class (:foreground ,black-6 :background ,blue-0))))
-   `(magit-section-highlight ((,class (:background ,yellow-00))))
+   `(magit-section-highlight ((,class (:background ,yellow-0, :foreground ,black-5))))
    `(magit-sequence-done ((,class (:foreground ,green-3))))
    `(magit-sequence-drop ((,class (:foreground ,orange-2))))
    `(magit-sequence-head ((,class (:foreground ,blue-2))))
@@ -574,11 +595,34 @@ Moe, moe, kyun!")
    `(message-mml ((,class (:foreground ,orange-2))))
    `(message-separator ((,class (:foreground ,white-3))))
 
+   ;; Tab-bar & Tab-line for Emacs 27
+   `(tab-bar ((,class (:background ,linum-light :foreground ,linum-dark :underline ,linum-light))))
+   `(tab-bar-tab ((,class (:background "#e7e7bf" :foreground ,black-5 :underline ,black-5 :bold t))))
+   `(tab-bar-tab-inactive ((,class (:background ,linum-light :foreground ,black-2))))
+
+   `(tab-line ((,class (:background ,linum-light :foreground ,linum-dark))))
+   `(tab-line-close-highlight ((,class (:background ,linum-light :foreground ,linum-dark))))
+   `(tab-line-highlight ((,class (:background "#e7e7bf" :foreground ,linum-dark))))
+   `(tab-line-tab ((,class (:background ,linum-light :foreground ,linum-dark))))
+   `(tab-line-tab-current ((,class (:background "#e7e7bf" :foreground ,black-6 :underline ,black-6))))
+   `(tab-line-tab-inactive ((,class (:background ,linum-light :foreground ,black-2))))
+
    ;; Grep
    `(grep-context-face ((,class (:foreground ,red-2))))
    `(grep-error-face ((,class (:foreground ,red-1 :weight bold :underline t))))
    `(grep-hit-face ((,class (:foreground ,green-2))))
    `(grep-match-face ((,class (:foreground nil :background nil :inherit match))))
+
+   ;; diff-hl
+   `(diff-hl-change ((,class (:foreground ,blue-4 :background ,blue-1 :bold t))))
+   `(diff-hl-delete ((,class (:foreground ,red-3 :background ,red-1 :bold t))))
+   `(diff-hl-insert ((,class (:foreground ,green-4, :background ,green-2 :bold t))))
+   `(diff-hl-reverted-hunk-highlight ((,class (:inherit (highlight)))))
+   `(diff-hl-dired-change ((,class (:inherit (diff-hl-change)))))
+   `(diff-hl-dired-delete ((,class (:inherit (diff-hl-delete)))))
+   ;; `(diff-hl-dired-ignored ((,class (:inherit (font-lock-comment-face)))))
+   `(diff-hl-dired-insert ((,class (:inherit (diff-hl-insert)))))
+   ;; `(diff-hl-dired-unknown ((,class (:inherit (diff-hl-change)))))
 
    ;; Diff
    `(diff-added ((,class (:foreground ,green-4 :background ,green-00 :bold t))))
@@ -984,7 +1028,26 @@ Moe, moe, kyun!")
    `(rpm-spec-dir-face ((,class (:foreground ,green-3))))
    `(rpm-spec-package-face ((,class (:foreground ,red-2))))
    `(rpm-spec-ghost-face ((,class (:foreground ,red-2))))
-   `(rpm-spec-section-face ((,class (:foreground ,red-1)))))
+   `(rpm-spec-section-face ((,class (:foreground ,red-1))))
+
+   ;; ansi-color
+   `(ansi-color-black ((,class (:background ,black-5 :foreground ,black-5))))
+   `(ansi-color-red ((,class (:background ,red-0 :foreground ,red-0))))
+   `(ansi-color-green ((,class (:background ,green-2 :foreground ,green-2))))
+   `(ansi-color-yellow ((,class (:background ,yellow-1 :foreground ,yellow-1))))
+   `(ansi-color-blue ((,class (:background ,blue-1 :foreground ,blue-1))))
+   `(ansi-color-magenta ((,class (:background ,purple-1 :foreground ,purple-1))))
+   `(ansi-color-cyan ((,class (:background ,blue-0 :foreground ,blue-0))))
+   `(ansi-color-white ((,class (:background ,white-0 :foreground ,white-0))))
+   `(ansi-color-bright-black ((,class (:background ,black-5 :foreground ,black-5))))
+   `(ansi-color-bright-red ((,class (:background ,red-0 :foreground ,red-0))))
+   `(ansi-color-bright-green ((,class (:background ,green-2 :foreground ,green-2))))
+   `(ansi-color-bright-yellow ((,class (:background ,yellow-1 :foreground ,yellow-1))))
+   `(ansi-color-bright-blue ((,class (:background ,blue-1 :foreground ,blue-1))))
+   `(ansi-color-bright-magenta ((,class (:background ,purple-1 :foreground ,purple-1))))
+   `(ansi-color-bright-cyan ((,class (:background ,blue-0 :foreground ,blue-0))))
+   `(ansi-color-bright-white ((,class (:background ,white-0 :foreground ,white-0))))
+   `(ansi-color-bold ((,class (:inherit bold)))))
 
   (custom-theme-set-variables
    'moe-light
