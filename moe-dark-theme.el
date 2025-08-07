@@ -500,7 +500,7 @@ Moe, moe, kyun!")
    `(magit-diff-removed ((,class (:foreground ,red-0 :background unspecified :bold t))))
    `(magit-diff-removed-highlight ((,class (:foreground ,red-0 :bold t :inherit (magit-section-highlight)))))
    `(magit-diff-revision-summary ((,class (:foreground ,yellow-00 :bold t))))
-   `(magit-diff-revision-summary-highlight ((,class (:foreground ,yellow0-0 :background ,yellow-4 :bold t))))
+   `(magit-diff-revision-summary-highlight ((,class (:foreground ,yellow-00 :background ,yellow-4 :bold t))))
    `(magit-diff-their ((,class (:foreground ,cyan-4)))) ;
    `(magit-diff-their-highlight ((,class (:foreground ,cyan-6 :background ,cyan-1))))
    `(magit-diff-whitespace-warning ((,class (:foreground ,red-3 :background ,red-3))))
