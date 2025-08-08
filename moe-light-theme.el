@@ -139,7 +139,7 @@ Moe, moe, kyun!")
 
    `(fixed-pitch-serif ((,class (:inherit (fixed-pitch)))))
    `(Info-quoted ((,class (:background ,white-2 :foreground ,black-6))))
-   
+
    ;; Escape and prompt faces
    `(minibuffer-prompt ((,class (:foreground ,black-5 :background ,green-2 :bold nil))))
    `(escape-glyph ((,class (:foreground ,yellow-3))))
@@ -463,7 +463,8 @@ Moe, moe, kyun!")
    `(transient-inapt-suffix ((,class (:foreground ,white-4 :background unspecified :strike-through t :slant italic))))
    `(transient-mismatched-key ((,class (:foreground unspecified :background unspecified :box (:line-width (1 . 1) :color ,magenta-3)))))
    `(transient-nonstandard-key ((,class (:foreground unspecified :background unspecified :box (:line-width (1 . 1) :color ,cyan-1)))))
-   
+
+
    ;; Magit >= 2.1.0
    `(magit-bisect-bad ((,class (:foreground ,red-3 :background ,red-00))))
    `(magit-bisect-good ((,class (:foreground ,green-4 :background ,green-0))))
@@ -539,7 +540,6 @@ Moe, moe, kyun!")
    `(magit-tag ((,class (:foreground ,purple-4 :background ,purple-00))))
    `(magit-valid-signature ((,class (:foreground ,cyan-4 :background ,LIGHT_BG :bold t))))
    `(magit-whitespace-warning-face ((,class (:foreground ,white-0 :background ,red-2 :bold t))))
-   `(magit-refname ((,class (:foreground ,white-0 :background ,black-4 :underline unspecified :bold t))))
 
    ;; Magit
    `(magit-branch ((,class (:foreground ,green-4 :background ,green-0 :bold t :underline t))))
@@ -590,6 +590,7 @@ Moe, moe, kyun!")
    `(magit-tag ((,class (:foreground ,purple-4 :background ,purple-00))))
    `(magit-valid-signature ((,class (:foreground ,cyan-4 :background ,LIGHT_BG :bold t))))
    `(magit-whitespace-warning-face ((,class (:foreground ,white-0 :background ,red-2 :bold t))))
+   `(magit-refname ((,class (:foreground ,white-0 :background ,black-4 :underline unspecified :bold t))))
 
    ;; git-commit-mode
    `(git-commit-branch-face ((,class (:foreground ,blue-4 :background ,blue-0 :underline t))))

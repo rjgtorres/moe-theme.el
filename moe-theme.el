@@ -9,7 +9,7 @@
 ;; Keywords: themes
 ;; X-URL: https://github.com/kuanyui/moe-theme.el
 ;; URL: https://github.com/kuanyui/moe-theme.el
-;; Version: 1.0.2
+;; Version: 1.1.0
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -61,19 +61,19 @@ If nil, just bold buffer-id without highlight")
 (defvar moe-theme-modeline-color 'blue
   "Default is 'blue.
 If nil, no background color.
-Available choices: 'blue, 'cyan', 'green, 'magenta, 'red, 'orange, 'yellow, 'purple, 'b/w, 'g/b")
+Available choices: 'blue, 'cyan', 'green, 'magenta, 'red, 'orange, 'yellow, 'purple, 'w/b, 'g/b.")
 
 ;; ======================================================
 ;; Auto Change Modeline Color By Frame ID
 ;; ======================================================
 
 (defvar moe-theme-colorize-modeline-by-frame-id nil
-  "Auto change modeline color after switching frame
+  "Auto change mode-line color after switching frame
 (If Elscreen is enabled, use it first.)
 This feature rely on a checksum function to ensure a predictable order of color.
 Function `moe-theme-get-color-by-frame-name' is the implementation.")
 
-(defvar moe-theme-colorize-modeline-by-frame-id-color-set '(cyan green orange blue yellow magenta b/w g/b purple)
+(defvar moe-theme-colorize-modeline-by-frame-id-color-set '(cyan green orange blue yellow magenta w/b g/b purple)
   "See `moe-theme-colorize-modeline-by-frame-id'.
 `moe-theme-get-color-by-frame-name' will choose a color from this list")
 
@@ -205,40 +205,40 @@ Avoid unnecessary load-theme")
                  (set-face-attribute 'default nil :background "#ffffff" :foreground "#5f5f5f"))))
 
   (cond ((eq moe-theme-modeline-color 'blue)
-         (set-face-attribute 'modeline nil :background "#afd7ff" :foreground "#005f87")
-         (set-face-attribute 'modeline-buffer-id nil :background "#afd7ff" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#afd7ff" :foreground "#005f87")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#afd7ff" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#5fafd7" :background "#3a3a3a"))
         ((eq moe-theme-modeline-color 'green)
-         (set-face-attribute 'modeline nil :background "#afdf77" :foreground "#005f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#a1db00" :foreground "#3a3a3a")
+         (set-face-attribute 'mode-line nil :background "#afdf77" :foreground "#005f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#a1db00" :foreground "#3a3a3a")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#a1db00" :background "#3a3a3a"))
         ((eq moe-theme-modeline-color 'orange)
-         (set-face-attribute 'modeline nil :background "#ffd787" :foreground "#d75f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ffd787" :foreground "#1c1c1c")
+         (set-face-attribute 'mode-line nil :background "#ffd787" :foreground "#d75f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffd787" :foreground "#1c1c1c")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#ff8700" :background "#1c1c1c"))
         ((eq moe-theme-modeline-color 'magenta)
-         (set-face-attribute 'modeline nil :background "#ffafd7" :foreground "#cc1f8b")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ffafd7" :foreground "#3a3a3a")
+         (set-face-attribute 'mode-line nil :background "#ffafd7" :foreground "#cc1f8b")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffafd7" :foreground "#3a3a3a")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#ff4ea3" :background "#3a3a3a"))
         ((eq moe-theme-modeline-color 'yellow)
-         (set-face-attribute 'modeline nil :background "#fce94f" :foreground "#875f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#fce94f" :foreground "#3a3a3a")
+         (set-face-attribute 'mode-line nil :background "#fce94f" :foreground "#875f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#fce94f" :foreground "#3a3a3a")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#fce94f" :background "#3a3a3a"))
         ((eq moe-theme-modeline-color 'purple)
-         (set-face-attribute 'modeline nil :background "#e6a8df" :foreground "#6c0099")
-         (set-face-attribute 'modeline-buffer-id nil :background "#e6a8df" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#e6a8df" :foreground "#6c0099")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#e6a8df" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#af5fd7" :background "#080808"))
         ((eq moe-theme-modeline-color 'red)
-         (set-face-attribute 'modeline nil :background "#ffafaf" :foreground "#d40000")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ffafaf" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#ffafaf" :foreground "#d40000")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffafaf" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#ff4b4b" :background "#080808"))
         ((eq moe-theme-modeline-color 'cyan)
-         (set-face-attribute 'modeline nil :background "#87d7af" :foreground "#005f5f")
-         (set-face-attribute 'modeline-buffer-id nil :background "#87d7af" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#87d7af" :foreground "#005f5f")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#87d7af" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#5faf87" :background "#3a3a3a"))
         ((eq moe-theme-modeline-color 'w/b)
-         (set-face-attribute 'modeline nil :background "#9b9b9b" :foreground "#ffffff")
-         (set-face-attribute 'modeline-buffer-id nil :background "#9b9b9b" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#555555" :foreground "#ffffff")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#555555" :foreground 'unspecified)
          (set-face-attribute 'minibuffer-prompt nil :foreground "#8a8a8a" :background "#080808")))
   (moe-theme--common-setup))
 
@@ -247,51 +247,50 @@ Avoid unnecessary load-theme")
   (interactive)
   (if moe-theme--need-reload-theme (load-theme 'moe-dark t))
   (cond ((eq moe-theme-modeline-color 'blue)
-         (set-face-attribute 'modeline nil :background "#afd7ff" :foreground "#005f87")
-         (set-face-attribute 'modeline-buffer-id nil :background "#afd7ff" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#afd7ff" :foreground "#005f87")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#afd7ff" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#005f87" :background "#afd7ff"))
         ((eq moe-theme-modeline-color 'green)
-         (set-face-attribute 'modeline nil :background "#afdf77" :foreground "#005f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#afdf77" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#afdf77" :foreground "#005f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#afdf77" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#005f00" :background "#a1db00"))
         ((eq moe-theme-modeline-color 'orange)
-         (set-face-attribute 'modeline nil :background "#ffaf5f" :foreground "#b75f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ffaf5f" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#ffaf5f" :foreground "#b75f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffaf5f" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#080808" :background "#ffaf5f"))
         ((eq moe-theme-modeline-color 'magenta)
-         (set-face-attribute 'modeline nil :background "#ffafd7" :foreground "#cc1f8b")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ffafd7" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#ffafd7" :foreground "#cc1f8b")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffafd7" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#ff1f8b" :background "#ffffff"))
         ((eq moe-theme-modeline-color 'yellow)
-         (set-face-attribute 'modeline nil :background "#fce94f" :foreground "#875f00")
-         (set-face-attribute 'modeline-buffer-id nil :background "#fce94f" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#fce94f" :foreground "#875f00")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#fce94f" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#875f00" :background "#ffff87"))
         ((eq moe-theme-modeline-color 'purple)
-         (set-face-attribute 'modeline nil :background "#e6a8df" :foreground "#6c0099")
-         (set-face-attribute 'modeline-buffer-id nil :background "#e6a8df" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#e6a8df" :foreground "#6c0099")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#e6a8df" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#6c0099" :background "#e6a8df"))
         ((eq moe-theme-modeline-color 'red)
-         (set-face-attribute 'modeline nil :background "#ef2929" :foreground "#ffffff")
-         (set-face-attribute 'modeline-buffer-id nil :background "#ef2929" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#ef2929" :foreground "#ffffff")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ef2929" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#a40000" :background "#ffafaf"))
         ((eq moe-theme-modeline-color 'cyan)
-         (set-face-attribute 'modeline nil :background "#87d7af" :foreground "#005f5f")
-         (set-face-attribute 'modeline-buffer-id nil :background "#87d7af" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#87d7af" :foreground "#005f5f")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#87d7af" :foreground "#080808")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#005f5f" :background "#87d7af"))
         ((eq moe-theme-modeline-color 'w/b)
-         (set-face-attribute 'modeline nil :background "#ffffff" :foreground "#3a3a3a")
-         (set-face-attribute 'modeline-buffer-id nil :background "#9e9e9e" :foreground "#080808")
+         (set-face-attribute 'mode-line nil :background "#ffffff" :foreground "#3a3a3a")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#ffffff" :foreground 'unspecified)
          (set-face-attribute 'minibuffer-prompt nil :foreground "#3e3e3e" :background "#ffffff"))
-	((eq moe-theme-modeline-color 'g/b)
-         (set-face-attribute 'modeline nil :background "#6c6c6c" :foreground "#c3c9f8")
-         (set-face-attribute 'modeline-buffer-id nil :background "#6c6c6c" :foreground "#010101")
+        ((eq moe-theme-modeline-color 'g/b)
+         (set-face-attribute 'mode-line nil :background "#6c6c6c" :foreground "#c3c9f8")
+         (set-face-attribute 'mode-line-buffer-id nil :background "#6c6c6c" :foreground "#010101")
          (set-face-attribute 'minibuffer-prompt nil :foreground "#8a8a8a" :background "#080808")))
   (moe-theme--common-setup))
 
 ;; ======================================================
-;; Colorize modeline (and Powerline)
+;; Colorize mode-line (and Powerline)
 ;; ======================================================
-
 (defalias 'moe-theme-apply-color 'moe-theme-modeline-apply-color)
 (make-obsolete 'moe-theme-apply-color 'moe-theme-modeline-apply-color "unpredictable someday.")
 (defalias 'moe-theme-select-color 'moe-theme-modeline-select-color)
@@ -300,19 +299,19 @@ Avoid unnecessary load-theme")
 (make-obsolete 'moe-theme-apply-color 'moe-theme-modeline-apply-color "unpredictable someday.")
 
 (defun moe-theme-modeline-apply-color (color)
-  "Set the COLOR of modeline you like. You may also like
+  "Set the COLOR of mode-line you like. You may also like
 `moe-theme-modeline-random-color' This should be called
 programmly (e.g. in init.el), not interactively."
   (setq moe-theme-modeline-color
         color)
-  (let (moe-theme--need-reload-theme) ;set to nil to change only modeline's color
+  (let (moe-theme--need-reload-theme) ;set to nil to change only mode-line's color
     (if (eq (frame-parameter nil 'background-mode) 'light)
         (moe-light)
       (moe-dark))))
 
 
-(defun moe-theme-select-color ()
-  "Interactively select the color of modeline you like and set
+(defun moe-theme-modeline-select-color ()
+  "Interactively select the color of mode-line you like and set
 it. Also see `moe-theme-modeline-random-color'"
   (interactive)
   (moe-theme-modeline-apply-color (intern (completing-read
@@ -321,7 +320,7 @@ it. Also see `moe-theme-modeline-random-color'"
                                 nil t "" nil nil t))))
 
 (defun moe-theme-modeline-random-color ()
-  "Give me a random modeline color.
+  "Give me a random mode-line color.
 This function can be called both programmly and interactively."
   (interactive)
   (let* ((n (abs (% (random) (length moe-theme-modeline-available-colors-set))))
@@ -341,73 +340,73 @@ It's recommended use this with `moe-light' or `moe-dark', but it's ok without th
 as long as setq `moe-theme-modeline-color' first."
     (interactive)
     (cond ((eq (frame-parameter nil 'background-mode) 'light)
-           (set-face-attribute 'modeline-buffer-id nil :background 'unspecified :foreground "#1c1c1c")
-           (set-face-attribute 'modeline-inactive nil :background "#b2b2b2" :foreground "#ffffff")
+           (set-face-attribute 'mode-line-buffer-id nil :background 'unspecified :foreground "#1c1c1c")
+           (set-face-attribute 'mode-line-inactive nil :background "#b2b2b2" :foreground "#ffffff")
            (set-face-attribute 'powerline-active2 nil :background "#585858" :foreground "#ffffff")
            (set-face-attribute 'powerline-inactive1 nil :background "#c6c6c6" :foreground "#585858")
            (set-face-attribute 'powerline-inactive2 nil :background "#e4e4e4" :foreground "#585858")
            (cond ((eq moe-theme-modeline-color 'blue)
-                  (set-face-attribute 'modeline nil :background "#5fafd7" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#5fafd7" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#afd7ff" :foreground "#005faf"))
                  ((eq moe-theme-modeline-color 'green)
-                  (set-face-attribute 'modeline nil :background "#a1db00" :foreground "#005f00")
+                  (set-face-attribute 'mode-line nil :background "#a1db00" :foreground "#005f00")
                   (set-face-attribute 'powerline-active1 nil :background "#d7ff87" :foreground "#008700"))
                  ((eq moe-theme-modeline-color 'orange)
-                  (set-face-attribute 'modeline nil :background "#ff8700" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff8700" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffd787" :foreground "#d75f00"))
                  ((eq moe-theme-modeline-color 'magenta)
-                  (set-face-attribute 'modeline nil :background "#ff4ea3" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff4ea3" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffafff" :foreground "#ff1f8b"))
                  ((eq moe-theme-modeline-color 'yellow)
-                  (set-face-attribute 'modeline nil :background "#fce94f" :foreground "#875f00")
+                  (set-face-attribute 'mode-line nil :background "#fce94f" :foreground "#875f00")
                   (set-face-attribute 'powerline-active1 nil :background "#ffff87" :foreground "#875f00"))
                  ((eq moe-theme-modeline-color 'purple)
-                  (set-face-attribute 'modeline nil :background "#af5fd7" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#af5fd7" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#e6a8df" :foreground "#6c0099"))
                  ((eq moe-theme-modeline-color 'red)
-                  (set-face-attribute 'modeline nil :background "#ff4b4b" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff4b4b" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffafaf" :foreground "#cc0000"))
                  ((eq moe-theme-modeline-color 'cyan)
-                  (set-face-attribute 'modeline nil :background "#5faf87" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#5faf87" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#87d7af" :foreground "#005f5f"))
                  ((eq moe-theme-modeline-color 'w/b)
-                  (set-face-attribute 'modeline nil :background "#1c1c1c" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#1c1c1c" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#bcbcbc" :foreground "#3a3a3a")
-                  (set-face-attribute 'modeline-buffer-id nil :background 'unspecified :foreground "#ffffff"))))
+                  (set-face-attribute 'mode-line-buffer-id nil :background 'unspecified :foreground "#ffffff"))))
           ((eq (frame-parameter nil 'background-mode) 'dark)
-           (set-face-attribute 'modeline-buffer-id nil :background 'unspecified :foreground "#080808")
-           (set-face-attribute 'modeline-inactive nil :background "#4e4e4e" :foreground "#9e9e9e")
+           (set-face-attribute 'mode-line-buffer-id nil :background 'unspecified :foreground "#080808")
+           (set-face-attribute 'mode-line-inactive nil :background "#4e4e4e" :foreground "#9e9e9e")
            (set-face-attribute 'powerline-active2 nil :background "#ffffff" :foreground "#3a3a3a")
            (set-face-attribute 'powerline-inactive1 nil :background "#626262" :foreground "#eeeeee")
            (set-face-attribute 'powerline-inactive2 nil :background "#767676" :foreground "#e4e4e4")
            (cond ((eq moe-theme-modeline-color 'blue)
-                  (set-face-attribute 'modeline nil :background "#5fafd7" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#5fafd7" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#afd7ff" :foreground "#005faf"))
                  ((eq moe-theme-modeline-color 'green)
-                  (set-face-attribute 'modeline nil :background "#a1db00" :foreground "#005f00")
+                  (set-face-attribute 'mode-line nil :background "#a1db00" :foreground "#005f00")
                   (set-face-attribute 'powerline-active1 nil :background "#d7ff87" :foreground "#008700"))
                  ((eq moe-theme-modeline-color 'orange)
-                  (set-face-attribute 'modeline nil :background "#ff8700" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff8700" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffd787" :foreground "#d75f00"))
                  ((eq moe-theme-modeline-color 'magenta)
-                  (set-face-attribute 'modeline nil :background "#ff4ea3" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff4ea3" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffafff" :foreground "#ff1f8b"))
                  ((eq moe-theme-modeline-color 'yellow)
-                  (set-face-attribute 'modeline nil :background "#fce94f" :foreground "#875f00")
+                  (set-face-attribute 'mode-line nil :background "#fce94f" :foreground "#875f00")
                   (set-face-attribute 'powerline-active1 nil :background "#ffff87" :foreground "#875f00"))
                  ((eq moe-theme-modeline-color 'purple)
-                  (set-face-attribute 'modeline nil :background "#af5fd7" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#af5fd7" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#e6a8df" :foreground "#6c0099"))
                  ((eq moe-theme-modeline-color 'red)
-                  (set-face-attribute 'modeline nil :background "#ff4b4b" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#ff4b4b" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#ffafaf" :foreground "#cc0000"))
                  ((eq moe-theme-modeline-color 'cyan)
-                  (set-face-attribute 'modeline nil :background "#5faf87" :foreground "#ffffff")
+                  (set-face-attribute 'mode-line nil :background "#5faf87" :foreground "#ffffff")
                   (set-face-attribute 'powerline-active1 nil :background "#87d7af" :foreground "#005f5f"))
                  ((eq moe-theme-modeline-color 'w/b)
-                  (set-face-attribute 'modeline nil :background "#ffffff" :foreground "#080808")
+                  (set-face-attribute 'mode-line nil :background "#9e9e9e" :foreground 'unspecified)
                   (set-face-attribute 'powerline-active1 nil :background "#bcbcbc" :foreground "#3a3a3a")
-                  (set-face-attribute 'modeline-buffer-id nil :background 'unspecified :foreground "#3a3a3a")))))
+                  (set-face-attribute 'mode-line-buffer-id nil :background 'unspecified :foreground "#3a3a3a")))))
     (powerline-default-theme)
     (powerline-reset))
   (defalias 'powerline-moe-theme 'moe-theme-powerline))
@@ -426,15 +425,15 @@ as long as setq `moe-theme-modeline-color' first."
            (enabled-colors-len (length moe-theme-colorize-modeline-by-frame-id-color-set)))
       (nth (% int enabled-colors-len) moe-theme-colorize-modeline-by-frame-id-color-set)))
 
-  (defadvice other-frame (after change-modeline-color-by-frame-id activate)
+  (defadvice other-frame (after change-mode-line-color-by-frame-id activate)
     (if moe-theme-colorize-modeline-by-frame-id
         (moe-theme-modeline-apply-color (moe-theme-get-color-by-frame-name))))
 
-  (defadvice delete-frame (after change-modeline-color-by-frame-id activate)
+  (defadvice delete-frame (after change-mode-line-color-by-frame-id activate)
     (if moe-theme-colorize-modeline-by-frame-id
         (moe-theme-modeline-apply-color (moe-theme-get-color-by-frame-name))))
 
-  (defadvice make-frame-command (after change-modeline-color-by-frame-id activate)
+  (defadvice make-frame-command (after change-mode-line-color-by-frame-id activate)
     (if moe-theme-colorize-modeline-by-frame-id
         (moe-theme-modeline-apply-color (moe-theme-get-color-by-frame-name)))))
 
@@ -448,19 +447,11 @@ as long as setq `moe-theme-modeline-color' first."
 	     (gotten-color (nth (% cur-index enabled-colors-len) moe-theme-colorize-modeline-by-frame-id-color-set)))
 	(message "[%s] %s" cur-index gotten-color)
 	gotten-color))
-    (defadvice elscreen-goto (after change-modeline-color-by-frame-id activate)
+    (defadvice elscreen-goto (after change-mode-line-color-by-frame-id activate)
       (if moe-theme-colorize-modeline-by-frame-id
           (moe-theme-modeline-apply-color (moe-theme-get-color-by-frame-name)))
       )
     ))
-;;;###autoload
-(when (and (boundp 'custom-theme-load-path)
-           load-file-name)
-  ;; add theme folder to `custom-theme-load-path' when installing over MELPA
-  (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
-
-
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path)
            load-file-name)
