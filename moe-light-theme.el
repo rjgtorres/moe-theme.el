@@ -120,7 +120,7 @@ Moe, moe, kyun!")
    `(linum-highlight-face ((,class (:background ,linum-dark :foreground ,linum-light))))
    `(line-number-current-line ((,class (:background ,linum-dark :foreground ,linum-light))))
    `(highlight ((,class (:background ,green-0))))
-   `(hl-line ((,class (:background ,green-00)))) ; Embedded strings of IM (e.g. fcitx) would be very unreadable... orz
+   `(hl-line ((,class (:background ,yellow-2)))) ; Embedded strings of IM (e.g. fcitx) would be very unreadable... orz
    `(highlight-symbol-face ((,class (:background ,green-00))))
    `(region ((,class (:foreground ,white-0 :background ,blue-1))))
    `(secondary-selection ((,class (:background ,blue-3 :foreground ,white-0))))

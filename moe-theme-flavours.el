@@ -234,7 +234,7 @@
 (defun moe-theme-flavour-lightmate ()
   (interactive)
   (let ((lmgray     "#bbbbbb")
-	(lmwhite    "#ffffd4")
+	(lmwhite    "#fce3a8")
 	(lmyellow   "#fce94f")
 	(lmsenape   "#acc900")
 	(lmlime     "#96ff00")
